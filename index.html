@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+      <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -32,24 +32,24 @@
       <body>
 
         <header class="container border-bottom border-left border-right border-dark rounded-bottom">
-          <nav class="row text-center w-100">
-            <h1 class="col border-right border-dark">Thing 1</h1>
-            <h1 class="col border-right border-dark">Thing 2</h1>
-            <h1 class="col border-right border-dark">Thing 3</h1>
-            <h1 class="col border-right border-dark">Thing 4</h1>
-            <h1 class="col">Thing 5</h1>
+          <nav class="row text-center w-100 align-items-center">
+            <h3 class="col border-right border-dark">About me</h3>
+            <h3 class="col border-right border-dark">My Projects</h3>
+            <h3 class="col border-right border-dark">JS Games</h3>
+            <h3 class="col border-right border-dark">Contact Me</h3>
+            <h3 class="col">Thing 5</h3>
           </nav>
         </header>
 
-        <main class="container-fluid d-flex flex-row justify-content-center p-0">
+        <main class="container-fluid d-flex flex-column justify-content-center p-0 m-0">
 
           <!--*This will be the about me section-->
-          <section class="container col-12 border border-primary w-100 h-auto row p-0ml-3">
-            <div class="border border-danger col-4">
-              <p>this will be rotating images</p>
+          <section class="container col-12 border border-primary w-100 row m-0">
+            <div class="border border-danger col-4 text-center">
+              <h4 class="pt-2">Image</h4>
               <div>
-                <img src="assets/img/planning sheet.png" alt="placeholder"
-                class="d-block img-fluid w-100 h-100"/>
+                <img class="img-fluid img-thumbnail" src="assets/img/planning sheet.png" alt="placeholder"
+                />
               </div>
               <div class="justify-content-center border border-dark text-center">
                 <button class="btn btn-dark">Prev</button>
@@ -57,8 +57,14 @@
               </div>
             </div>
             <!--*List-->
-            <div class="border border-primary col-4">
-              <p>this will be an about me list</p>
+            <div class="border border-primary col-4 text-center">
+              <h3 class="pt-2">About Me</h3>
+              <p>Some background text</p>
+              <ul class="list-group-flush align-bottom p-0">
+                <li class="list-group-item">Fact 1</li>
+                <li class="list-group-item">Fact 2</li>
+                <li class="list-group-item">Fact 3</li>
+              </ul>
             </div>
             <!--*Code related things-->
             <div class="row m-0 p-0 border border-info col-4 w-100">
@@ -72,11 +78,70 @@
                 </div>
             </div>
           </section>
+
+          <!--*This will be the project section-->
+          <section class="container col-12 border border-primary w-100 row justify-content-center m-0">
+
+            <div class="border border-danger col-6 row p-0 m-0 justify-content-center">
+              <h2 class="col-12 text-center">proejct 1</h2>
+              <div class="overflow-auto h-75 col-4 border border-info p-0 m-0 align-self-center">
+                <p>This will be a description of the project</p>
+              </div>
+              <div class="col-8 border border-dark p-0 m-0">
+                <img class="img-fluid img-thumbnail" src="assets/img/placeholder.png" alt="placeholder"
+                />
+              </div>
+            </div>
+
+            <div class="border border-danger col-6 row p-0 m-0 justify-content-center">
+              <h2 class="col-12 text-center">proejct 1</h2>
+              <div class="col-8 border border-dark p-0 m-0">
+                <img class="img-fluid img-thumbnail" src="assets/img/placeholder.png" alt="placeholder"
+                />
+              </div>
+              <div class="overflow-auto h-75 col-4 border border-info p-0 m-0 align-self-center">
+                <p>This will be a description of the project</p>
+              </div>
+            </div>
+            
+          </section>
+
+          <!--*This will be the JS section-->
+          <section class="container col-12 border border-primary w-100 row m-0">
+            <div class="border border-danger col-2 align-self-center">
+              <p>select your game</p>
+              <ul class="list-group">
+                <li class="list-group-item">Aim Trainer</li>
+                <li class="list-group-item">Reaction</li>
+                <li class="list-group-item">Chandler and My Game</li>
+              </ul>
+            </div>
+
+            <canvas class="border border-danger bg-danger col-8 p-0 m-0">
+              <p>the game</p>
+            </canvas>
+
+            <div class="border border-danger col-2 align-self-center">
+              <p class="text-center">high score pages</p>
+              <ul class="list-group">
+                <li class="list-group-item">Score 1</li>
+                <li class="list-group-item">Score 2</li>
+                <li class="list-group-item">Score 3</li>
+                <li class="list-group-item">Score 4</li>
+                <li class="list-group-item">Score 5</li>
+              </ul>
+            </div>
+          </section>
+      
           
         </main>
 
-
-
+        <footer class="container border-top border-left border-right border-dark w-50 rounded-top align-self-end">
+          <nav class="row text-center w-100 align-items-center">
+            <h4 class="col border-right border-dark">My Resume</h4>
+            <h4 class="col border-dark">Contact Me</h4>
+          </nav>
+        </footer>
 
         <script type= "text/javascript" src="assets/js/script.js"></script>
 
