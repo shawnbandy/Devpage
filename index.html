@@ -25,7 +25,7 @@
           type="text/javascript"
           src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
         ></script>
-        <link rel="stylesheet" href="assets/style/untilted.css" />
+        <link rel="stylesheet" type="text/css" href="assets/style/style.css" />
         <title>Shawn Canavan DevPage</title>
       </head>
 
@@ -47,13 +47,14 @@
           <section id="aboutMe" class="container col-12 border border-primary w-100 row pt-2 m-0">
             <div class="border border-primary col-lg-4 text-center col-sm-6">
               <h4 class="pt-2">Image</h4>
-              <div>
-                <img class="img-fluid img-thumbnail" src="assets/img/planning sheet.png" alt="placeholder"
+              <div class="border border-danger overflow-auto h-75 col-12">
+                <img id="amPic" class="img-fluid img-thumbnail w-100 h-100" src="assets/img/picsOfMe/2.jpeg" alt="placeholder"
                 />
+
               </div>
               <div class="justify-content-center border border-dark text-center">
-                <button class="btn btn-dark">Prev</button>
-                <button class="btn btn-dark">Next</button>
+                <button id="amPrevBtn" class="btn btn-dark">Prev</button>
+                <button id="amNextBtn" class="btn btn-dark">Next</button>
               </div>
             </div>
             <!--*List-->
@@ -111,7 +112,7 @@
                 <p>You can read more about the application <a href="https://github.com/shawnbandy/SwiftNews" target="_blank" rel="noopener"><u>here</u></a>!</p>
               </div>
               <div class="col-8 border border-dark p-0 m-0 h-75 overflow-auto">
-                <img class="img-fluid img-thumbnail w-100 h-745" src="assets/img/swiftnews.jpeg" alt="placeholder"
+                <img id="psProj1" class="img-fluid img-thumbnail w-100 h-100" src="assets/img/swiftnews.jpeg" alt="placeholder"
                 />
               </div>
             </div>
@@ -119,7 +120,7 @@
             <div class="border border-danger col-6 row p-0 m-0 justify-content-center">
               <h2 class="col-12 text-center">Project 2</h2>
               <div class="col-8 border border-dark p-0 m-0 h-75 overflow-auto">
-                <img class="img-fluid img-thumbnail w-100 h-100" src="assets/img/weather.jpeg" alt="placeholder"
+                <img id="psProj2" class="img-fluid img-thumbnail w-100 h-100" src="assets/img/weather.jpeg" alt="placeholder"
                 />
               </div>
               <div class="overflow-auto h-50 col-4 border border-info p-0 m-0 align-self-center">
@@ -134,9 +135,9 @@
             <div class="border border-danger col-2 align-self-center">
               <p>select your game</p>
               <ul class="list-group">
-                <li class="list-group-item">Aim Trainer</li>
-                <li class="list-group-item">Reaction</li>
-                <li class="list-group-item">Chandler and My Game</li>
+                <li id="jssATBtn" class="list-group-item">Aim Trainer</li>
+                <li id="jssRxnBtn" class="list-group-item">Reaction</li>
+                <li id="jssCASBtn" class="list-group-item">Chandler and My Game</li>
               </ul>
             </div>
 
@@ -146,7 +147,7 @@
 
             <div class="border border-danger col-2 align-self-center">
               <p class="text-center">high score pages</p>
-              <ul class="list-group">
+              <ul id="jssHS" class="list-group">
                 <li class="list-group-item">Score 1</li>
                 <li class="list-group-item">Score 2</li>
                 <li class="list-group-item">Score 3</li>
