@@ -15,7 +15,7 @@
           href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
           crossorigin="anonymous"
-        />
+        /> 
         <!--*google fonts-->
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" 
@@ -135,18 +135,18 @@
             <div class="border border-danger col-2 align-self-center">
               <p>select your game</p>
               <ul class="list-group">
-                <li id="jssATBtn" class="list-group-item">Aim Trainer</li>
-                <li id="jssRxnBtn" class="list-group-item">Reaction</li>
-                <li id="jssCASBtn" class="list-group-item">Chandler and My Game</li>
+                <li id="jssATBtn" class="list-group-item btn">Aim Trainer</li>
+                <li id="jssRxnBtn" class="list-group-item btn">Reaction</li>
+                <li id="jssCASBtn" class="list-group-item btn">Chandler and My Game</li>
               </ul>
             </div>
 
-            <canvas class="border border-danger bg-danger col-8 p-0 m-0">
+            <canvas id="canvas" class="border bg-danger col-8 p-0 m-0" style="background-color: green; color: gray;">
               <p>the game</p>
             </canvas>
 
             <div class="border border-danger col-2 align-self-center">
-              <p class="text-center">high score pages</p>
+              <p id="jssHSID" class="text-center">high score pages</p>
               <ul id="jssHS" class="list-group">
                 <li class="list-group-item">Score 1</li>
                 <li class="list-group-item">Score 2</li>

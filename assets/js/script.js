@@ -9,6 +9,13 @@ const jssATBtn = document.getElementById("jssATBtn");
 const jssRxnBtn = document.getElementById("jssRxnBtn");
 const jssCASBtn = document.getElementById("jssCASBtn");
 const jssHS = document.getElementById("jssHS");
+const jssHSID = document.getElementById("jssHSID");
+
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+ctx.fillStyle = "gray";
+ctx.fillRect(0, 0, canvas.width, canvas.height)
+
 
 
 //!About Me Section
@@ -40,6 +47,15 @@ amNextBtn.addEventListener("click", function(){
 //!High Score Section
 
 //TODO: make the high score depending on which game you have
+jssATBtn.addEventListener("click", () =>{
+    jssHSID.textContent = "Aim Trainer High Score"
+})
+jssCASBtn.addEventListener("click", () =>{
+    jssHSID.textContent = "Placeholder"
+})
+jssRxnBtn.addEventListener("click", () =>{
+    jssHSID.textContent = "Reaction"
+})
 //TODO: populate the list depending on the game
 
 
@@ -48,7 +64,21 @@ amNextBtn.addEventListener("click", function(){
 //TODO: make the games change based on button press on selecting game
 
 //?Aim Trainer
+
 //TODO: Make a hard/medium/easy mode
+
+const displayDifficulty = () => {
+//*x,y,w,h
+    ctx.fillStyle = "green";
+    ctx.fillRect((canvas.width / 6), (canvas.height / 3), 45, 30);
+    ctx.fillStyle = "yellow";
+    ctx.fillRect((canvas.width/2.35), (canvas.height / 3), 45, 30);
+    ctx.fillStyle = "red";
+    ctx.fillRect((canvas.width/1.5), (canvas.height / 3), 45, 30);
+
+}
+displayDifficulty()
+
 //TODO: make a button/box that the user has to click on, and each success will increase their counter by 1 
 //TODO: have the boxes appear according to a time interval, disappear if they're not hit, disappear if they're never hit, etc 
 //TODO: update the HS page with the top scores hit
