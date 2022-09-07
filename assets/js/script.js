@@ -76,40 +76,45 @@ const displayDifficulty = () => {
     ctx.fillRect(125, 50, 45, 30);
     ctx.fillStyle = "red";
     ctx.fillRect(195, 50, 45, 30);
+
 }
 
-displayDifficulty()
+
 //*height is 150, width is 300
 //*canvas coordinates: TL: .5/.5, TR: 966/.5, BL: .5/482, BR: 966/482
-console.log(canvas.height);
-console.log(canvas.width);
 
 //*!going to have to make this return x and y so we can use it for multiple things
 const getMousePosition = function(canvas, event) {
     let rect = canvas.getBoundingClientRect();
-    let x = event.clientX - rect.left;
-    let y = event.clientY - rect.top;
-    console.log("Coordinate x: " + x, 
-                "Coordinate y: " + y);
+    return {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top
+      };
 
-    if (x >= 178 && x <= 322 && y >= 162 && y <= 258){
-        selectDifficulty("easy")
-    } else if (x >= 404 && x <= 545 && y >= 162 && y <= 258){
-        selectDifficulty("medium")
-    } else if (x >= 629 && x <= 770 && y >= 162 && y <= 258){
-        selectDifficulty("hard")
-    }
 }
 
 
 canvas.addEventListener("mousedown", function(e){
-        getMousePosition(canvas, e);
+        let mousePosition = getMousePosition(canvas, e);
+        console.log(mousePosition.x + " " + mousePosition.y)
+        selectDifficulty(mousePosition.x, mousePosition.y)
     });
 
 
 
 
-const selectDifficulty = (difficulty) => {
+const selectDifficulty = (x, y) => {
+    let difficulty;
+    if (x >= 178 && x <= 322 && y >= 162 && y <= 258){
+        difficulty = "easy";
+    } else if (x >= 404 && x <= 545 && y >= 162 && y <= 258){
+        difficulty = "medium";
+    } else if (x >= 629 && x <= 770 && y >= 162 && y <= 258){
+        difficulty = "hard";
+    } else { return }
+    console.log(difficulty)
+
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "gray";
     ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -117,7 +122,6 @@ const selectDifficulty = (difficulty) => {
     const aimTrainerGame = new PlayAimTrainer(.5, 966, .5, 482)
     switch (difficulty){
         case "easy":
-            console.log("easy");
             aimTrainerGame.easyMode(150, 100)
             break;
         case "medium":
@@ -144,10 +148,11 @@ class PlayAimTrainer{
     generateBox(color, boxHeight, boxWidth){
         this.boxHeight = boxHeight;
         this.boxWidth = boxWidth;
-        //*randomly generate the starting point for the box to display
-        let startingX = Math.floor(math.random() * (this.maxX - this.boxWidth));
-        let startingY = Math.floor(math.random() * (this.maxY - this.boxHeight));
         this.color = color;
+        //*randomly generate the starting point for the box to display
+        let startingX = Math.floor(Math.random() * (this.maxX - this.boxWidth));
+        let startingY = Math.floor(Math.random() * (this.maxY - this.boxHeight));
+
 
         ctx.fillStyle = this.color;
         ctx.fillRect(startingX, startingY, this.boxWidth, this.boxHeight)
@@ -157,7 +162,7 @@ class PlayAimTrainer{
         this.boxHeight = boxHeight
         this.boxWidth = boxWidth
         let timer = 20;
-        while (timer > 0){
+        while (timer == 0){
             this.generateBox("green", this.boxHeight, this.boxWidth)
         }
     }
@@ -175,3 +180,6 @@ class PlayAimTrainer{
 
 //?Chan + me Game
 //*may import on a separate JS file after it's done
+
+
+displayDifficulty()
