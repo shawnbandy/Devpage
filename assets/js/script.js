@@ -49,6 +49,7 @@ amNextBtn.addEventListener("click", function(){
 //TODO: make the high score depending on which game you have
 jssATBtn.addEventListener("click", () =>{
     jssHSID.textContent = "Aim Trainer High Score"
+    displayDifficulty()
 })
 jssCASBtn.addEventListener("click", () =>{
     jssHSID.textContent = "Placeholder"
@@ -70,14 +71,98 @@ jssRxnBtn.addEventListener("click", () =>{
 const displayDifficulty = () => {
 //*x,y,w,h
     ctx.fillStyle = "green";
-    ctx.fillRect((canvas.width / 6), (canvas.height / 3), 45, 30);
+    ctx.fillRect(55, 50, 45, 30);
     ctx.fillStyle = "yellow";
-    ctx.fillRect((canvas.width/2.35), (canvas.height / 3), 45, 30);
+    ctx.fillRect(125, 50, 45, 30);
     ctx.fillStyle = "red";
-    ctx.fillRect((canvas.width/1.5), (canvas.height / 3), 45, 30);
+    ctx.fillRect(195, 50, 45, 30);
+}
+
+displayDifficulty()
+//*height is 150, width is 300
+//*canvas coordinates: TL: .5/.5, TR: 966/.5, BL: .5/482, BR: 966/482
+console.log(canvas.height);
+console.log(canvas.width);
+
+//*!going to have to make this return x and y so we can use it for multiple things
+const getMousePosition = function(canvas, event) {
+    let rect = canvas.getBoundingClientRect();
+    let x = event.clientX - rect.left;
+    let y = event.clientY - rect.top;
+    console.log("Coordinate x: " + x, 
+                "Coordinate y: " + y);
+
+    if (x >= 178 && x <= 322 && y >= 162 && y <= 258){
+        selectDifficulty("easy")
+    } else if (x >= 404 && x <= 545 && y >= 162 && y <= 258){
+        selectDifficulty("medium")
+    } else if (x >= 629 && x <= 770 && y >= 162 && y <= 258){
+        selectDifficulty("hard")
+    }
+}
+
+
+canvas.addEventListener("mousedown", function(e){
+        getMousePosition(canvas, e);
+    });
+
+
+
+
+const selectDifficulty = (difficulty) => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "gray";
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+    const aimTrainerGame = new PlayAimTrainer(.5, 966, .5, 482)
+    switch (difficulty){
+        case "easy":
+            console.log("easy");
+            aimTrainerGame.easyMode(150, 100)
+            break;
+        case "medium":
+            console.log("medium");
+            break;
+        case "hard":
+            console.log("hard");
+            break;
+        default: 
+            break;
+    }
+    
+}
+
+class PlayAimTrainer{
+
+    constructor(minX, maxX, minY, maxY){
+        this.minX = minX
+        this.maxX = maxX
+        this.minY = minY
+        this.maxY = maxY
+    }
+
+    generateBox(color, boxHeight, boxWidth){
+        this.boxHeight = boxHeight;
+        this.boxWidth = boxWidth;
+        //*randomly generate the starting point for the box to display
+        let startingX = Math.floor(math.random() * (this.maxX - this.boxWidth));
+        let startingY = Math.floor(math.random() * (this.maxY - this.boxHeight));
+        this.color = color;
+
+        ctx.fillStyle = this.color;
+        ctx.fillRect(startingX, startingY, this.boxWidth, this.boxHeight)
+    }
+
+    easyMode(boxHeight, boxWidth){
+        this.boxHeight = boxHeight
+        this.boxWidth = boxWidth
+        let timer = 20;
+        while (timer > 0){
+            this.generateBox("green", this.boxHeight, this.boxWidth)
+        }
+    }
 
 }
-displayDifficulty()
 
 //TODO: make a button/box that the user has to click on, and each success will increase their counter by 1 
 //TODO: have the boxes appear according to a time interval, disappear if they're not hit, disappear if they're never hit, etc 
